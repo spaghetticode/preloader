@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title>Preloader Sample</title>
+  <style type="text/css">
+    body {
+      background: black;
+      text-align: center;
+    }
+    #imgs {
+      margin: 20px auto;
+      width: 1000px;
+      overflow: auto;
+    }
+    img {
+      display: none;
+      float: left;
+    }
+  </style>
+  <script src="../lib/jquery.min.js"></script>
+  <script src="../jquery.preloader.js"></script>
+  <script>
+    $(function() {
+      setTimeout(function() {
+        $('img').preload({
+          each: function() {
+            $(this).fadeIn();
+          },
+          all:  function() {
+            console.log('preloaded', this.length, 'images');
+          }
+        });
+      }, 500);
+    })
+  </script>
+</head>
+<body>
+  <div id="imgs">
+    <img src="images/1.jpeg" />
+    <img src="images/2.jpeg" />
+    <img src="images/3.jpeg" />
+    <img src="images/4.jpeg" />
+  </div>
+</body>
+</html>
